@@ -10,7 +10,7 @@ int main(){
 
 	RTIMUSettings *settings = new RTIMUSettings("BerryGPS-IMU");
 
-	RTIMU *imu = RTIMU::createIMU(settings);
+	RTIMU *imu = new RTIMUBerryIMU(settings);
 
 	if((imu == NULL) || (imu->IMUType() == RTIMU_TYPE_NULL)){
 		printf("No IMU found\n");

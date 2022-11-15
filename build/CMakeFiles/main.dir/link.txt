@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/main.dir/main.cpp.o -o main  -Wl,-rpath,"/home/tore/Documents/F - Utbildning/B - Master/IL2232/tightly-coupled-gnss-data-logger_imu_node/build/RTIMULib:" RTIMULib/libRTIMULib.so.8.0.0 

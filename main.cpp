@@ -1,5 +1,5 @@
-#include "../RTIMULib2/RTIMULib/RTIMULib.h"
-#include "../RTIMUBerryGPS-IMUV4/RTIMUBerryIMU.h"
+#include "RTIMULib.h"
+#include "RTIMUBerryIMU.h"
 
 int main(){
 	int samleCount = 0;
@@ -12,7 +12,7 @@ int main(){
 
 	RTIMU *imu = RTIMU::createIMU(settings);
 
-	if((imu == NULL) || (imu->IMUtype() == RTIMU_TYPE_NULL)){
+	if((imu == NULL) || (imu->IMUType() == RTIMU_TYPE_NULL)){
 		printf("No IMU found\n");
 		exit(1);
 	}

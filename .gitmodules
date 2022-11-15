@@ -1,0 +1,6 @@
+[submodule "RTIMUBerryGPS-IMUV4"]
+	path = RTIMUBerryGPS-IMUV4
+	url = git@github.com:torejohansson97/RTIMUBerryGPS-IMUV4.git
+[submodule "RTIMULib2"]
+	path = RTIMULib2
+	url = git@github.com:HongshiTan/RTIMULib2.git

@@ -2,7 +2,7 @@
 #include "RTIMUBerryIMU.h"
 
 int main(){
-	int samleCount = 0;
+	int sampleCount = 0;
 	int sampleRate = 0;
 	uint64_t rateTimer;
 	uint64_t displayTimer;
@@ -18,4 +18,34 @@ int main(){
 	}
 
 	imu->IMUInit();
+
+	imu->setSlerpPower(0.02);
+	imu->setGyroEnable(true);
+	imu->setAccelEnable(true);
+	imu->setCompassEnable(true);
+	
+	rateTimer = displayTimer = RTMath::currentUSecsSinceEpoch();
+
+	while(1) {
+		usleep(imu->IMUGetPollInterval() * 1000);
+
+		while(imu->IMURead()) {
+			RTIMU_DATA imuData = imu->getIMUData();
+			sampleCount++;
+
+			now = RTMath::currentUSecsSinceEpoch();
+
+			if((now - displayTimer) > 1000000){
+				printf("Sample rate: %d: %s\r", sampleRate, RTMath::displayDegrees("", imuData.fusionPose));
+				fflush(stdout);
+				displayTimer = now;
+			}
+
+			if((now - rateTimer) > 1000000){
+				sampleRate = sampleCount;
+				sampleCount = 0;
+				rateTimer = now;
+			}
+		}
+	}
 }

@@ -1,0 +1,3 @@
+[submodule "src/RTIMULib2"]
+	path = src/RTIMULib2
+	url = git@github.com:torejohansson97/RTIMULib2.git
